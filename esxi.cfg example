@@ -1,0 +1,11 @@
+define host {
+    use                     generic-host
+    host_name               ESXI01
+    alias                   ESXi 01
+    address                 172.19.166.20
+
+    hostgroups              esxi
+
+    _ESXI_USER              root
+    _ESXI_PASSFILE           /etc/nagios/esxi/esxi01.pass
+}
