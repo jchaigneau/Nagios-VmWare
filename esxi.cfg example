@@ -1,11 +1,57 @@
+define hostgroup {
+    hostgroup_name    esxi
+    alias             VMware ESXi
+}
+
 define host {
-    use                     generic-host
-    host_name               ESXI01
-    alias                   ESXi 01
-    address                 172.19.166.20
+    use              generic-host
+    host_name        ESXI01
+    alias            ESXi 01
+    address           172.19.166.20
+    hostgroups        esxi
+    _ESXI_USER        root
+    _ESXI_PASSFILE    /etc/nagios/esxi/esxi01.pass
+}
 
-    hostgroups              esxi
+define host {
+    use              generic-host
+    host_name        ESXI02
+    alias             ESXi 02
+    address           172.19.166.21
+    hostgroups        esxi
+    _ESXI_USER        root
+    _ESXI_PASSFILE    /etc/nagios/esxi/esxi02.pass
+}
 
-    _ESXI_USER              root
-    _ESXI_PASSFILE           /etc/nagios/esxi/esxi01.pass
+
+# =========================
+# SERVICES ESXi
+# =========================
+
+define service {
+    use                     generic-service
+    hostgroup_name          esxi
+    service_description     CPU
+    check_command           check_esxi_cpu!80!90
+}
+
+define service {
+    use                     generic-service
+    hostgroup_name          esxi
+    service_description     RAM
+    check_command           check_esxi_ram!80!90
+}
+
+define service {
+    use                     generic-service
+    hostgroup_name          esxi
+    service_description     VM ACTIVES
+    check_command            check_esxi_vms!999!1000
+}
+
+define service {
+    use                     generic-service
+    hostgroup_name          esxi
+    service_description     DATASTORES
+    check_command            check_esxi_datastore!20!10
 }
