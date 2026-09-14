@@ -59,8 +59,7 @@ chmod 600 /etc/nagios/esxi/esxi01.pass
 Le fichier .pass contient uniquement le mot de passe.
 
 ----------------------------------
-
-Configuration Nagios
+## Configuration du Nagios
 
 Ajouter les commandes de commands.cfg dans /usr/local/nagios/etc/objects/commands.cfg
 
