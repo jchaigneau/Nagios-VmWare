@@ -10,11 +10,8 @@ Checks disponibles :
 - VM actives
 - espace libre des datastores
 
-## Installation
+## Installation Debian 13 :
 
-Debian 13 :
-
-----------------------------------
 apt update
 apt install python3 python3-venv
 
