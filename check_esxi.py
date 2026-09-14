@@ -338,12 +338,18 @@ def main():
     )
 
     args = parser.parse_args()
-
-    if args.warning >= args.critical:
-        nagios_exit(
-            UNKNOWN,
-            "UNKNOWN - le seuil WARNING doit être inférieur au seuil CRITICAL"
-        )
+    if args.mode == "datastore":
+        if args.warning <= args.critical:
+            nagios_exit(
+                UNKNOWN,
+                "UNKNOWN - pour un datastore, WARNING doit être supérieur à CRITICAL"
+            )
+    else:
+        if args.warning >= args.critical:
+            nagios_exit(
+                UNKNOWN,
+                "UNKNOWN - WARNING doit être inférieur à CRITICAL"
+            )
 
     si = connect_esxi(args)
     content = si.RetrieveContent()
