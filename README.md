@@ -62,8 +62,7 @@ Le fichier .pass contient uniquement le mot de passe.
 ## Configuration du Nagios
 
 Ajouter les commandes de commands.cfg dans /usr/local/nagios/etc/objects/commands.cfg
-
-copier esxi.cfg dans /usr/local/nagios/etc/objects/esxi.cfg
+Copier esxi.cfg dans /usr/local/nagios/etc/objects/esxi.cfg
 et l'adapter
 
 Ajouter dans nagios.cfg :
