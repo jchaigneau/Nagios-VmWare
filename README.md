@@ -38,8 +38,11 @@ Credentials ESXi
 Les mots de passe sont stockés hors de la configuration Nagios :
 
 /etc/nagios/esxi/
+
 ├── esxi01.pass
+
 ├── esxi02.pass
+
 └── ...
 
 Création :
